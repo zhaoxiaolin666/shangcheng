@@ -78,27 +78,27 @@
     "onerror": {
       "errorPageUrl": "",
       "appErrorFilter": null,
-      "templatePath": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-onerror@2.1.0@egg-onerror\\lib\\onerror_page.mustache"
+      "templatePath": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-onerror\\lib\\onerror_page.mustache"
     },
     "i18n": {
       "defaultLocale": "en_US",
       "dirs": [
-        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-session@3.2.0@egg-session\\config\\locales",
-        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-security@2.8.0@egg-security\\config\\locales",
-        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-jsonp@2.0.0@egg-jsonp\\config\\locales",
-        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-onerror@2.1.0@egg-onerror\\config\\locales",
-        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-i18n@2.1.1@egg-i18n\\config\\locales",
-        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-watcher@3.1.1@egg-watcher\\config\\locales",
-        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-schedule@3.6.4@egg-schedule\\config\\locales",
-        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-multipart@2.10.3@egg-multipart\\config\\locales",
-        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-development@2.5.0@egg-development\\config\\locales",
-        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-logrotator@3.1.0@egg-logrotator\\config\\locales",
-        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-static@2.2.0@egg-static\\config\\locales",
-        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-view@2.1.2@egg-view\\config\\locales",
-        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-mongoose@3.2.0@egg-mongoose\\config\\locales",
-        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-view-ejs@2.0.1@egg-view-ejs\\config\\locales",
-        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-jwt@3.1.7@egg-jwt\\config\\locales",
-        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg@2.27.0@egg\\config\\locales",
+        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-session\\config\\locales",
+        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-security\\config\\locales",
+        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-jsonp\\config\\locales",
+        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-onerror\\config\\locales",
+        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-i18n\\config\\locales",
+        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-watcher\\config\\locales",
+        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-schedule\\config\\locales",
+        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-multipart\\config\\locales",
+        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-development\\config\\locales",
+        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-logrotator\\config\\locales",
+        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-static\\config\\locales",
+        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-view\\config\\locales",
+        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-mongoose\\config\\locales",
+        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-view-ejs\\config\\locales",
+        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-jwt\\config\\locales",
+        "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg\\config\\locales",
         "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\config\\locales"
       ],
       "queryField": "locale",
@@ -110,8 +110,8 @@
     "watcher": {
       "type": "development",
       "eventSources": {
-        "default": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-watcher@3.1.1@egg-watcher\\lib\\event-sources\\default",
-        "development": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-watcher@3.1.1@egg-watcher\\lib\\event-sources\\development"
+        "default": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-watcher\\lib\\event-sources\\default",
+        "development": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-watcher\\lib\\event-sources\\development"
       }
     },
     "customLogger": {
@@ -204,9 +204,7 @@
     "env": "local",
     "name": "server",
     "keys": "<String len: 25>",
-    "cookies": {},
     "proxy": false,
-    "maxIpsCount": 0,
     "maxProxyCount": 0,
     "protocolHeaders": "x-forwarded-proto",
     "ipHeaders": "x-forwarded-for",
@@ -286,9 +284,8 @@
     "bodyParser": {
       "enable": true,
       "encoding": "utf8",
-      "formLimit": "1mb",
+      "formLimit": "100kb",
       "jsonLimit": "100mb",
-      "textLimit": "1mb",
       "strict": true,
       "queryString": {
         "arrayLimit": 100,
@@ -397,9 +394,9 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg@2.27.0@egg\\config\\plugin.js",
-      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-session@3.2.0@egg-session",
-      "version": "3.2.0"
+      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg\\config\\plugin.js",
+      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-session",
+      "version": "3.1.0"
     },
     "security": {
       "enable": true,
@@ -410,9 +407,9 @@
         "session"
       ],
       "env": [],
-      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg@2.27.0@egg\\config\\plugin.js",
-      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-security@2.8.0@egg-security",
-      "version": "2.8.0"
+      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg\\config\\plugin.js",
+      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-security",
+      "version": "2.5.0"
     },
     "jsonp": {
       "enable": true,
@@ -423,8 +420,8 @@
         "security"
       ],
       "env": [],
-      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg@2.27.0@egg\\config\\plugin.js",
-      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-jsonp@2.0.0@egg-jsonp",
+      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg\\config\\plugin.js",
+      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-jsonp",
       "version": "2.0.0"
     },
     "onerror": {
@@ -436,8 +433,8 @@
         "jsonp"
       ],
       "env": [],
-      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg@2.27.0@egg\\config\\plugin.js",
-      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-onerror@2.1.0@egg-onerror",
+      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg\\config\\plugin.js",
+      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-onerror",
       "version": "2.1.0"
     },
     "i18n": {
@@ -447,8 +444,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg@2.27.0@egg\\config\\plugin.js",
-      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-i18n@2.1.1@egg-i18n",
+      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg\\config\\plugin.js",
+      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-i18n",
       "version": "2.1.1"
     },
     "watcher": {
@@ -458,9 +455,9 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg@2.27.0@egg\\config\\plugin.js",
-      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-watcher@3.1.1@egg-watcher",
-      "version": "3.1.1"
+      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg\\config\\plugin.js",
+      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-watcher",
+      "version": "3.1.0"
     },
     "schedule": {
       "enable": true,
@@ -469,8 +466,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg@2.27.0@egg\\config\\plugin.js",
-      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-schedule@3.6.4@egg-schedule",
+      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg\\config\\plugin.js",
+      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-schedule",
       "version": "3.6.4"
     },
     "multipart": {
@@ -482,9 +479,9 @@
         "schedule"
       ],
       "env": [],
-      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg@2.27.0@egg\\config\\plugin.js",
-      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-multipart@2.10.3@egg-multipart",
-      "version": "2.10.3"
+      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg\\config\\plugin.js",
+      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-multipart",
+      "version": "2.7.1"
     },
     "development": {
       "enable": true,
@@ -497,9 +494,9 @@
       "env": [
         "local"
       ],
-      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg@2.27.0@egg\\config\\plugin.js",
-      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-development@2.5.0@egg-development",
-      "version": "2.5.0"
+      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg\\config\\plugin.js",
+      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-development",
+      "version": "2.4.3"
     },
     "logrotator": {
       "enable": true,
@@ -510,8 +507,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg@2.27.0@egg\\config\\plugin.js",
-      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-logrotator@3.1.0@egg-logrotator",
+      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg\\config\\plugin.js",
+      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-logrotator",
       "version": "3.1.0"
     },
     "static": {
@@ -521,8 +518,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg@2.27.0@egg\\config\\plugin.js",
-      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-static@2.2.0@egg-static",
+      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg\\config\\plugin.js",
+      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-static",
       "version": "2.2.0"
     },
     "view": {
@@ -532,8 +529,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg@2.27.0@egg\\config\\plugin.js",
-      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-view@2.1.2@egg-view",
+      "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg\\config\\plugin.js",
+      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-view",
       "version": "2.1.2"
     },
     "mongoose": {
@@ -544,7 +541,7 @@
       "optionalDependencies": [],
       "env": [],
       "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\config\\plugin.js",
-      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-mongoose@3.2.0@egg-mongoose",
+      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-mongoose",
       "version": "3.2.0"
     },
     "ejs": {
@@ -557,8 +554,8 @@
       "optionalDependencies": [],
       "env": [],
       "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\config\\plugin.js",
-      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-view-ejs@2.0.1@egg-view-ejs",
-      "version": "2.0.1"
+      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-view-ejs",
+      "version": "2.0.0"
     },
     "jwt": {
       "enable": true,
@@ -570,8 +567,8 @@
       ],
       "env": [],
       "from": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\config\\plugin.js",
-      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\_egg-jwt@3.1.7@egg-jwt",
-      "version": "3.1.7"
+      "path": "C:\\Users\\Hansem\\Desktop\\shangcheng\\server\\node_modules\\egg-jwt",
+      "version": "3.1.6"
     }
   }
 }

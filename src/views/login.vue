@@ -73,9 +73,15 @@ export default {
         })
         .then(res => {
              if(res.code===200){
-                //  this.username="",
-                //  this.password="",
-                //  this.verify="",
+                 let obj1={
+                     nickname: this.username,
+                    password: this.password,
+                    verify:this.verify,
+                 }
+                localStorage.setItem("user",JSON.stringify(obj1))
+                this.username="",
+                 this.password="",
+                 this.verify="",
                  this.$toast(res.msg);
                  this.$router.push("/")
             }
@@ -100,7 +106,17 @@ export default {
         })
         .then(res => {
             if(res.code===200){
+                let obj2={
+                     nickname: this.username,
+                    password: this.password,
+                    verify:this.verify,
+                 }
+                localStorage.setItem("user",JSON.stringify(obj2))
+                 this.username="",
+                 this.password="",
+                 this.verify="",
                  this.$toast(res.msg);
+                 this.$router.push("/")
             }
             else{
                 this.$toast(res.msg);

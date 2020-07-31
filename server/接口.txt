@@ -6,7 +6,7 @@
 参数: value: 搜索关键词
 
 3. 分类查询(get)
-/classification?mallSubId=${id}
+`/classification?mallSubId=${id}`   模板字符串
 参数:
 id:默认分类的id
 
@@ -20,7 +20,7 @@ count: 购物车数量
 id: 商品id
 mallPrice: 价格
 
-6. 购物车商品删除(post)
+6. 购物车商品删除(post)cid
 /deleteShop
 参数: 
 id: 商品id(数组)
