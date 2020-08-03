@@ -82,7 +82,7 @@
       <div>
         <van-goods-action>
           <van-goods-action-icon icon="chat-o" text="客服" />
-          <van-goods-action-icon icon="cart-o" text="购物车" :badge="badges" @click="goCart" />
+          <van-goods-action-icon icon="cart-o" text="购物车"  @click="goCart" />
           <van-goods-action-button type="warning" text="加入购物车" @click="addCart" />
           <van-goods-action-button type="danger" text="立即购买" @click="immediately" />
         </van-goods-action>
@@ -165,7 +165,7 @@ export default {
       this.show = true;
     },
     //立即购买
-    Buynow() {
+    Buynow111() {
       this.$api
         .getgoodsData(this.id)
         .then((res) => {
@@ -181,6 +181,11 @@ export default {
           console.log(err);
         });
     },
+    Buynow() {
+      this.$utils.checkLogin(this.Buynow111, () => {
+        this.$router.push("/login");
+      });
+    },
     //单个商品请求
     goodsData(id) {
       this.$api
@@ -190,12 +195,14 @@ export default {
             this.comment = res.goods.comment;
             this.goods = res.goods; //对应id的详情页数据
             this.goods111 = this.goods.goodsOne;
-            this.queryUser = JSON.parse(localStorage.getItem("username"));
-            this.$utils.addCollction(
-              this.queryUser,
-              "colltion",
-              this.goods.goodsOne
-            );
+            if (JSON.parse(localStorage.getItem("user"))) {
+              this.queryUser = JSON.parse(localStorage.getItem("username"));
+              this.$utils.addCollction(
+                this.queryUser,
+                "colltion",
+                this.goods.goodsOne
+              );
+            }
             // JSON.parse(localStorage.getItem("user"));
             // console.log(JSON.parse(localStorage.getItem(`${this.queryUser}colltion`)));
             // console.log(this.$utils)
@@ -218,7 +225,7 @@ export default {
         });
     },
     //确认收藏
-    determine() {
+    determine111() {
       this.$api
         .getcollectionData(this.goods.goodsOne)
         .then((res) => {
@@ -232,8 +239,13 @@ export default {
           console.log(err);
         });
     },
+    determine() {
+      this.$utils.checkLogin(this.determine111, () => {
+        this.$router.push("/login");
+      });
+    },
     //取消收藏
-    cancel() {
+    cancel111() {
       this.$api
         .getcancelCollectionData(this.id)
         .then((res) => {
@@ -246,6 +258,11 @@ export default {
         .catch((err) => {
           console.log(err);
         });
+    },
+    cancel() {
+      this.$utils.checkLogin(this.cancel111, () => {
+        this.$router.push("/login");
+      });
     },
     //图片预览
     goodsimage() {
@@ -263,7 +280,7 @@ export default {
       this.$router.push("/ShoppingCart");
     },
     //加入购物车
-    addCart() {
+    addCart111() {
       this.$api
         .getaddShopData(this.id)
         .then((res) => {
@@ -276,9 +293,15 @@ export default {
           console.log(err);
         });
     },
+    addCart() {
+      this.$utils.checkLogin(this.addCart111(), () => {
+        this.$router.push("/login");
+      });
+    },
   },
   //页面初始化方法
   mounted() {
+    localStorage.removeItem("nullcolltion");
     this.id = this.$route.query.id; //接收id
     // console.log(this.id);
     this.goodsData(this.id); //挂载商品方法
@@ -301,9 +324,9 @@ export default {
   watch: {},
   //计算
   computed: {
-    badges() {
-      return this.$store.state.badges;
-    },
+    // badges() {
+    //   return this.$store.state.badges;
+    // },
   },
 };
 </script>

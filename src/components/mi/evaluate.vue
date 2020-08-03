@@ -83,7 +83,7 @@ export default {
           if (res.code === 200) {
             this.list = res.data.list;
           }
-          // console.log(this.list);
+          console.log(this.list);
         })
         .catch((err) => {
           conaole.log(err);
@@ -103,7 +103,7 @@ export default {
             // console.log(res);
         })
         .catch((err) => {
-          conaole.log(err);
+          console.log(err);
         });
     },
     //查看评价

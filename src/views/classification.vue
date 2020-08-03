@@ -113,7 +113,7 @@ export default {
         .then(res => {
           this.category = res.data.category; // 分类
           //   console.log(this.activeKey);
-          this.bxMallSubDto = this.category[this.activeKey].bxMallSubDto; //默认项导航栏0的标签数据
+          this.bxMallSubDto = this.category[this.activeKey].bxMallSubDto; //默认项导航栏0的标签数据!!!
           // console.log(this.bxMallSubDto);
           this.id = this.bxMallSubDto[this.active].mallSubId; //默认项导航栏0的标签栏0的id
           this.classification(this.id); //给事件classification传形参id

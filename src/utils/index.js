@@ -1,15 +1,30 @@
 //默认导出
 import { Dialog } from "vant";
+
 export default {
     //检测登录没有
-    checkLogin(next) {
+    checkLogin(next, toLogin) {
         if (localStorage.getItem("user")) {
-            next();
+            next;
         } else {
-            Dialog.alert({
-                titile: "检测到您现在没有登录",
-                message: "是否跳转到登录/注册页面",
-            });
+            // function beforeClose(action, done) {
+            //     if (action === "confirm") {
+            //         setTimeout(done, 1000);
+            //     } else {
+            //         done();
+            //     }
+            // }
+            Dialog.confirm({
+                    titile: "检测到您现在没有登录",
+                    message: "是否跳转到登录/注册页面",
+                    // beforeClose,
+                })
+                .then(() => {
+                    toLogin(); //_this.$router.push("/login"); // on confirm
+                })
+                .catch(() => {
+                    // on cancel
+                });
         }
     },
     //加入收藏列表和最近浏览是一样
@@ -26,12 +41,15 @@ export default {
         let user = username + name;
         if (localStorage.getItem(user)) {
             let arr = JSON.parse(localStorage.getItem(user));
-            arr.unshift(item);
             //去重的逻辑  收藏
-            arr = arr.filter((item, index, arr) => {
-                return arr.indexOf(item);
+            let arr2 = [];
+            arr2 = arr.filter((item1) => {
+                return item1._id === item._id;
             });
-            localStorage.setItem(user, JSON.stringify(arr));
+            if (arr2.length === 0) {
+                arr.unshift(item);
+                localStorage.setItem(user, JSON.stringify(arr));
+            }
         } else {
             let arr = [];
             arr.unshift(item);

@@ -41,43 +41,43 @@
       </div>
       <div>
         <van-grid :column-num="5">
-          <van-grid-item icon="after-sale" text="带付款" to="/Allorders"/>
-          <van-grid-item icon="underway-o" text="待发货" to="/Allorders"/>
-          <van-grid-item icon="logistics" text="待发货" to="/Allorders"/>
-          <van-grid-item icon="orders-o" text="评价" to="/evaluate"/>
-          <van-grid-item icon="points" text="已完成" to="/Allorders"/>
+          <van-grid-item icon="after-sale" text="带付款" @click="Allorders" />
+          <van-grid-item icon="underway-o" text="待发货" @click="Allorders" />
+          <van-grid-item icon="logistics" text="待发货" @click="Allorders" />
+          <van-grid-item icon="orders-o" text="评价" @click="evaluate"/>
+          <van-grid-item icon="points" text="已完成" @click="Allorders" />
         </van-grid>
       </div>
       <div>
         <div>
-          <van-cell is-link icon="cart-circle-o" to="/Allorders">
+          <van-cell is-link icon="cart-circle-o">
             <!-- 使用 title 插槽来自定义标题 -->
             <template #title>
-              <span class="custom-title">全部订单</span>
+              <span class="custom-title"  @click="Allorders">全部订单</span>
             </template>
           </van-cell>
         </div>
         <div>
-          <van-cell is-link icon="points" to="/Collection">
+          <van-cell is-link icon="points">
             <!-- 使用 title 插槽来自定义标题 -->
             <template #title>
-              <span class="custom-title">收藏商品</span>
+              <span class="custom-title"  @click="Collection">收藏商品</span>
             </template>
           </van-cell>
         </div>
         <div>
-          <van-cell is-link icon="aim" to="/goaddress">
+          <van-cell is-link icon="aim" >
             <!-- 使用 title 插槽来自定义标题 -->
             <template #title>
-              <span class="custom-title">地址管理</span>
+              <span class="custom-title" @click="goaddress">地址管理</span>
             </template>
           </van-cell>
         </div>
         <div>
-          <van-cell is-link icon="credit-pay" to="/browsing">
+          <van-cell is-link icon="credit-pay">
             <!-- 使用 title 插槽来自定义标题 -->
             <template #title>
-              <span class="custom-title">最近浏览</span>
+              <span class="custom-title"  @click="browsing">最近浏览</span>
             </template>
           </van-cell>
         </div>
@@ -104,23 +104,66 @@ export default {
   },
   //事件方法执行
   methods: {
+    Allorders111() {
+      this.$router.push("/Allorders");
+    },
+    Allorders() {
+      this.$utils.checkLogin(this.Allorders111(), () => {
+        this.$router.push("/login");
+      });
+    },
+    evaluate111() {
+      this.$router.push("/evaluate");
+    },
+    evaluate() {
+      this.$utils.checkLogin(this.evaluate111(), () => {
+        this.$router.push("/login");
+      });
+    },
     gologin() {
       this.$router.push("/login");
     },
     gologin111() {
-        this.$api.getloginOutData().then(res=>{
-            if(res.code===0){
-                localStorage.clear();  
-            }
-            console.log(res)
-        }).catch(err=>{
-            console.log(err)
+      this.$api
+        .getloginOutData()
+        .then((res) => {
+          if (res.code === 0) {
+            localStorage.clear();
+          }
+          console.log(res);
         })
+        .catch((err) => {
+          console.log(err);
+        });
       //   this.$router.go(0);
       this.flag = false;
     },
     setup111() {
       this.$router.push("/setup");
+    },
+    Collection111() {
+      this.$router.push("/Collection");
+    },
+    Collection() {
+      this.$utils.checkLogin(this.Collection111(), () => {
+        this.$router.push("/login");
+      });
+    },
+    goaddress111() {
+      this.$router.push("/goaddress");
+    },
+    goaddress() {
+      this.$utils.checkLogin(this.goaddress111(), () => {
+        this.$router.push("/login");
+      });
+    },
+    browsing111() {
+      this.$router.push("/browsing");
+    },
+    browsing() {
+      this.$utils.checkLogin(this.browsing111(), () => {
+        this.$router.push("/login");
+      });
     },
   },
   //页面初始化方法

@@ -253,10 +253,10 @@ export default {
         .then((res) => {
           if (res.code === 200) {
             this.shopList = res.shopList;
-            this.length = this.shopList.length;
-            if(this.length!==0){
-                this.$store.commit("setbadges", this.length);
-            }
+            // this.length = this.shopList.length;
+            // if(this.length!==0){
+            //     this.$store.commit("setbadges", this.length);
+            // }
             this.checked = this.shopList.every((item) => {
               return item.check === true;
             });
@@ -296,9 +296,9 @@ export default {
       });
       return Price;
     },
-    badges() {
-      return this.$store.state.badges;
-    },
+    // badges() {
+    //   return this.$store.state.badges;
+    // },
   },
   //过滤器
   filters: {

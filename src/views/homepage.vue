@@ -3,7 +3,15 @@
     <div class="home">
       <div class="hometop">
         <!-- 定位  -->
-        <div>成都市</div>
+        <div v-if="city===''&&cityflag===false" style="width:80px;" @click="location">获取中...</div>
+        <div v-else-if="cityflag===true" style="width:80px;" @click="location">
+          {{citys}}
+          <van-icon name="arrow-down" />
+        </div>
+        <div v-else style="width:80px;" @click="location">
+          {{city}}
+          <van-icon name="arrow-down" />
+        </div>
         <!-- 搜索框  -->
         <div>
           <van-search
@@ -21,7 +29,7 @@
       </div>
       <div v-show="flag===true">
         <!-- <div v-for="(item,index) in history" :key="index" style="display:flex;">
-            <div> {{item}} </div>
+          <div>{{item}}</div>
         </div>-->
         <div style="width:100%;height:100%;">
           <div v-for="(item,index) in Search" :key="index">
@@ -116,6 +124,8 @@ export default {
   },
   data() {
     return {
+      city: "",
+      citys: "",
       images: [],
       category: [],
       consolesearchtop: "",
@@ -131,7 +141,9 @@ export default {
       flag: false,
       Search: [],
       history: [],
-      queryUser:''
+      queryUser: "",
+      cityflag: false,
+      queryUser: "",
       // msg: "改变之后"
     };
   },
@@ -161,6 +173,16 @@ export default {
           console.log(err);
         });
     },
+    //定位
+    location() {
+      if (JSON.parse(sessionStorage.getItem("city"))) {
+        this.citys = JSON.parse(sessionStorage.getItem("city"));
+        this.$router.push({ path: "/location", query: { city: this.citys } });
+      } else {
+        this.$router.push({ path: "/location", query: { city: this.city } });
+      }
+      // console.log(this.city)
+    },
     //搜索
     onSearch() {
       this.$api
@@ -180,16 +202,18 @@ export default {
         .catch((err) => {
           console.log(err);
         });
-      //   if (this.Search.length > 0) {
-      //     this.history.unshift(this.searchtop);
-      //     if (this.history.length === 10) {
-      //       this.history.pop(this.searchtop);
-      //     }
-      //     this.history=this.history.filter(item=>{
-      //         return item!==""
-      //     })
-      //     console.log(this.history);
-      //   }
+      // if (this.history.length === 10) {
+      //     this.history.pop(this.searchtop)
+      //   this.history = this.history.filter((item) => {
+      //     return item !== "";
+      //   });
+      //   this.queryUser = JSON.parse(localStorage.getItem("username"));
+      //   this.$utils.addCollction(this.queryUser, "search", this.searchtop);
+      //   this.history = JSON.parse(
+      //     localStorage.getItem(`${this.queryUser}search`)
+      //   );
+      // }
+      // console.log(this.history);
     },
     //跳转分类
     gotocategory(item, index) {
@@ -199,7 +223,7 @@ export default {
       });
     },
     //加入购物车
-    addCart(item) {
+    addCart111(item) {
       this.$api
         .getaddShopData(item.goodsId)
         .then((res) => {
@@ -212,6 +236,11 @@ export default {
           console.log(err);
         });
     },
+    addCart(item) {
+      this.$utils.checkLogin(this.addCart111(item), () => {
+        this.$router.push("/login");
+      });
+    },
     // change() {
     //   this.$store.commit("setName", this.msg);
     // }
@@ -222,7 +251,7 @@ export default {
         .then((res) => {
           if (res.code === 200) {
             this.queryUser = res.userInfo.username;
-            localStorage.setItem('username',JSON.stringify(this.queryUser))
+            localStorage.setItem("username", JSON.stringify(this.queryUser));
           }
           // console.log(this.queryUser);
         })
@@ -232,12 +261,47 @@ export default {
     },
   },
   mounted() {
+    let _this = this;
+    AMap.plugin("AMap.Geolocation", function () {
+      var geolocation = new AMap.Geolocation({
+        // 是否使用高精度定位，默认：true
+        enableHighAccuracy: true,
+        // 设置定位超时时间，默认：无穷大
+        timeout: 10000,
+        // 定位按钮的停靠位置的偏移量，默认：Pixel(10, 20)
+        buttonOffset: new AMap.Pixel(10, 20),
+        //  定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+        zoomToAccuracy: true,
+        //  定位按钮的排放位置,  RB表示右下
+        buttonPosition: "RB",
+      });
+
+      geolocation.getCurrentPosition();
+      AMap.event.addListener(geolocation, "complete", onComplete);
+      AMap.event.addListener(geolocation, "error", onError);
+
+      function onComplete(data) {
+        // data是具体的定位信息
+
+        _this.city = data.addressComponent.city;
+        // console.log(_this.city)
+        // console.log(data.addressComponent.city)
+      }
+
+      function onError(data) {
+        // 定位出错
+      }
+    });
     this.getqueryUser();
     this.getrecommend();
     new BScroll(this.$refs.container, {
       scrollX: true,
       click: true,
     });
+    if (JSON.parse(sessionStorage.getItem("city"))) {
+      this.citys = JSON.parse(sessionStorage.getItem("city"));
+      this.cityflag = true;
+    }
   },
   watch: {
     searchtop() {
@@ -254,9 +318,9 @@ export default {
     // name() {
     //   return this.$store.state.name;
     // },
-    badges() {
-      return this.$store.state.badges;
-    },
+    // badges() {
+    //   return this.$store.state.badges;
+    // },
   },
 };
 </script>
