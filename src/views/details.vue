@@ -82,7 +82,8 @@
       <div>
         <van-goods-action>
           <van-goods-action-icon icon="chat-o" text="客服" />
-          <van-goods-action-icon icon="cart-o" text="购物车"  @click="goCart" />
+          <van-goods-action-icon icon="cart-o" text="购物车"  @click="goCart" v-if="$store.state.badges===0"/>
+          <van-goods-action-icon icon="cart-o" text="购物车"  @click="goCart" v-else :badge="$store.state.badges"/>
           <van-goods-action-button type="warning" text="加入购物车" @click="addCart" />
           <van-goods-action-button type="danger" text="立即购买" @click="immediately" />
         </van-goods-action>
@@ -156,6 +157,7 @@ export default {
       comment: [],
       user: [],
       queryUser: "",
+      length:0,
     };
   },
   //事件方法执行
@@ -216,7 +218,6 @@ export default {
           }
           //   console.log(res);
           if (typeof this.goods111 == "undefined") {
-            //   console.log(111)
             this.image111 = 111;
           }
         })
@@ -285,6 +286,7 @@ export default {
         .getaddShopData(this.id)
         .then((res) => {
           if (res.code === 200) {
+              this.$store.commit("getgetCard");
             Toast.success(res.msg);
           }
           console.log(res);

@@ -15,7 +15,7 @@ export default {
             //     }
             // }
             Dialog.confirm({
-                    titile: "检测到您现在没有登录",
+                    title: "检测到您现在没有登录",
                     message: "是否跳转到登录/注册页面",
                     // beforeClose,
                 })

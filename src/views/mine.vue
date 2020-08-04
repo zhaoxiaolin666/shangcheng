@@ -44,7 +44,7 @@
           <van-grid-item icon="after-sale" text="带付款" @click="Allorders" />
           <van-grid-item icon="underway-o" text="待发货" @click="Allorders" />
           <van-grid-item icon="logistics" text="待发货" @click="Allorders" />
-          <van-grid-item icon="orders-o" text="评价" @click="evaluate"/>
+          <van-grid-item icon="orders-o" text="评价" @click="evaluate" />
           <van-grid-item icon="points" text="已完成" @click="Allorders" />
         </van-grid>
       </div>
@@ -53,7 +53,7 @@
           <van-cell is-link icon="cart-circle-o">
             <!-- 使用 title 插槽来自定义标题 -->
             <template #title>
-              <span class="custom-title"  @click="Allorders">全部订单</span>
+              <span class="custom-title" @click="Allorders">全部订单</span>
             </template>
           </van-cell>
         </div>
@@ -61,12 +61,12 @@
           <van-cell is-link icon="points">
             <!-- 使用 title 插槽来自定义标题 -->
             <template #title>
-              <span class="custom-title"  @click="Collection">收藏商品</span>
+              <span class="custom-title" @click="Collection">收藏商品</span>
             </template>
           </van-cell>
         </div>
         <div>
-          <van-cell is-link icon="aim" >
+          <van-cell is-link icon="aim">
             <!-- 使用 title 插槽来自定义标题 -->
             <template #title>
               <span class="custom-title" @click="goaddress">地址管理</span>
@@ -77,7 +77,7 @@
           <van-cell is-link icon="credit-pay">
             <!-- 使用 title 插槽来自定义标题 -->
             <template #title>
-              <span class="custom-title"  @click="browsing">最近浏览</span>
+              <span class="custom-title" @click="browsing">最近浏览</span>
             </template>
           </van-cell>
         </div>
@@ -104,6 +104,7 @@ export default {
   },
   //事件方法执行
   methods: {
+      //订单
     Allorders111() {
       this.$router.push("/Allorders");
     },
@@ -112,6 +113,7 @@ export default {
         this.$router.push("/login");
       });
     },
+    //评论
     evaluate111() {
       this.$router.push("/evaluate");
     },
@@ -120,14 +122,18 @@ export default {
         this.$router.push("/login");
       });
     },
+    //登录路径
     gologin() {
       this.$router.push("/login");
     },
+    //退出登录
     gologin111() {
       this.$api
         .getloginOutData()
         .then((res) => {
           if (res.code === 0) {
+            this.$store.commit("getgetCard");
+            // this.$router.go(0);
             localStorage.clear();
           }
           console.log(res);
@@ -138,9 +144,11 @@ export default {
       //   this.$router.go(0);
       this.flag = false;
     },
+    //跳转设置
     setup111() {
       this.$router.push("/setup");
     },
+    //收藏记录
     Collection111() {
       this.$router.push("/Collection");
     },
@@ -149,6 +157,7 @@ export default {
         this.$router.push("/login");
       });
     },
+    //地址管理
     goaddress111() {
       this.$router.push("/goaddress");
     },
@@ -157,6 +166,7 @@ export default {
         this.$router.push("/login");
       });
     },
+    //最近浏览
     browsing111() {
       this.$router.push("/browsing");
     },

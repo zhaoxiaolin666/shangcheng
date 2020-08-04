@@ -137,13 +137,13 @@ export default {
       floor3: [],
       floorName: {},
       hotGoods: [],
-      length: null,
       flag: false,
       Search: [],
       history: [],
       queryUser: "",
       cityflag: false,
       queryUser: "",
+      length: 0,
       // msg: "改变之后"
     };
   },
@@ -224,10 +224,12 @@ export default {
     },
     //加入购物车
     addCart111(item) {
+      // this.$store.commit("setbadges", (this.$store.state.badges)++);
       this.$api
         .getaddShopData(item.goodsId)
         .then((res) => {
           if (res.code === 200) {
+              this.$store.commit("getgetCard");
             Toast.success(res.msg);
           }
           console.log(res);
@@ -262,7 +264,7 @@ export default {
   },
   mounted() {
     let _this = this;
-    AMap.plugin("AMap.Geolocation", function () {
+    AMap.plugin("AMap.Geolocation",  ()=> {
       var geolocation = new AMap.Geolocation({
         // 是否使用高精度定位，默认：true
         enableHighAccuracy: true,

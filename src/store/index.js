@@ -15,20 +15,22 @@ export default new Vuex.Store({
         // setbadges(state, data) {
         //     state.badges = data
         // },
-        //查询获取购物车数据(get)
-        // getgetCard(state) {
-        //     api
-        //         .getgetCardData()
-        //         .then((res) => {
-        //             if (res.code === 200) {
-        //                 state.badges = res.shopList.length;
-        //                 // window.console.log(state.badges);
-        //             }
-        //         })
-        //         .catch((err) => {
-        //             console.log(err);
-        //         });
-        // },
+        // //查询获取购物车数据(get)
+        getgetCard(state) {
+            api
+                .getgetCardData()
+                .then((res) => {
+                    if (res.code === 200) {
+                        state.badges = res.shopList.length;
+                        // window.console.log(state.badges);
+                    } else {
+                        state.badges = 0
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        },
     },
     actions: {},
     modules: {},

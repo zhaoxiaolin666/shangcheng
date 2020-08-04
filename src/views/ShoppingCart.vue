@@ -87,6 +87,7 @@
                 max="50"
                 @plus="plus111(item)"
                 @minus="minus111(item)"
+                disable-input
               />
             </div>
           </div>
@@ -226,6 +227,7 @@ export default {
         .getdeleteShopData(this.cid)
         .then((res) => {
           if (res.code === 200) {
+                this.$store.commit("getgetCard");
             Toast.success(res.msg);
           }
           //   console.log(res);
@@ -233,6 +235,8 @@ export default {
         .catch((err) => {
           console.log(err);
         });
+        // this.length = this.shopList.length;
+        // this.$store.commit("setbadges", this.length);
     },
     //提交订单
     Submit() {
@@ -253,10 +257,9 @@ export default {
         .then((res) => {
           if (res.code === 200) {
             this.shopList = res.shopList;
-            // this.length = this.shopList.length;
-            // if(this.length!==0){
-            //     this.$store.commit("setbadges", this.length);
-            // }
+            this.length = this.shopList.length;
+                // this.$store.commit("setbadges", this.length);
+                 this.$store.commit("getgetCard");
             this.checked = this.shopList.every((item) => {
               return item.check === true;
             });
