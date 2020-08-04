@@ -4975,3 +4975,12 @@ hostname: DESKTOP-3JDLG0E
 pid: 6084
 hostname: DESKTOP-3JDLG0E
 
+2020-08-04 13:24:31,821 ERROR 9708 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:205:27)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 9708
+hostname: DESKTOP-3JDLG0E
+

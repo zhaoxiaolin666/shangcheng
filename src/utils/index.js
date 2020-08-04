@@ -1,5 +1,6 @@
 //默认导出
 import { Dialog } from "vant";
+import router from "../router";
 
 export default {
     //检测登录没有
@@ -23,6 +24,7 @@ export default {
                     toLogin(); //_this.$router.push("/login"); // on confirm
                 })
                 .catch(() => {
+                    // router.go(-1)
                     // on cancel
                 });
         }
