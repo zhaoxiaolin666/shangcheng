@@ -33,7 +33,7 @@
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
   },
-  //移动端适配
+  
   "postcss": {
     "plugins": {
       "postcss-import": {},
