@@ -128,7 +128,7 @@ export default {
     }
   },
   //页面初始化方法
-  mounted() {"?"
+  mounted() {
     this.classification();
     this.getHome();
     //页面初始化判断有无主页activeKey传来，没有activeKey=0
